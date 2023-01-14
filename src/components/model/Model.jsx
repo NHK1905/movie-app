@@ -19,8 +19,30 @@ const Model = props => {
 }
 
 Model.propTypes = {
-    active: propTypes.bool,
+    active: PropTypes.bool,
     id: PropTypes.string
+}
+
+export const ModelContent = props => {
+    const contentRef = useRef(null);
+
+    const closeModel = () => {
+        contentRef.current.parentNode.classList.remove('active');
+        if (props.onClose) props.onClose();
+    }
+
+    return (
+        <div ref={contentRef} className="model__content">
+            {props.children}
+            <div className="model__content__close" onClick={closeModel}>
+                <i className="bx bx-x"></i>
+            </div>
+        </div>
+    )
+}
+
+ModelContent.propTypes = {
+    onClose: PropTypes.func
 }
 
 export default Model
