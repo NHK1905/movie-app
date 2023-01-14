@@ -19,7 +19,7 @@ const Model = props => {
 }
 
 Model.propTypes = {
-    active: propTypes.bool,
+    active: PropTypes.bool,
     id: PropTypes.string
 }
 
