@@ -65,12 +65,12 @@ const MainSlideItem = props => {
 
         const videos = await tmdbApi.getVideos(category.movie, item.id);
 
-        if (videos.results.length > 0) {
+        if (videos.results) {
             const videSrc = 'https://www.youtube.com/embed/' + videos.results[0].key;
             model.querySelector('.model__content > iframe').setAttribute('src', videSrc);
         } else {
             model.querySelector('.model__content').innerHTML = 'No Trailer';
-        }
+        }        
 
         model.classList.toggle('active');
     }
